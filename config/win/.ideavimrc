@@ -1,0 +1,24 @@
+set nu
+syntax on
+set ic
+inoremap  <C-A> <Home>
+inoremap  <C-B> <Left>
+inoremap  <C-D> <Esc>x
+inoremap  <C-F> <Right>
+inoremap  <C-E> <End>
+inoremap  <C-N> <Down>
+inoremap  <C-P> <Up>
+inoremap  <C-W> <Esc>dbi
+inoremap  jk <Esc>
+inoremap  <C-S> <Esc>:w<cr>i
+nnoremap  <C-S> :w<cr>i
+nnoremap  <S-H> ^
+nnoremap  <S-L> $
+" 1. 注释
+    :vnoremap ci :s/^/\/\/<cr>
+    :vnoremap cu :s/\/\//<cr>
+    :nnoremap ci :s/^/\/\/<cr>
+    :nnoremap cu :s/\/\//<cr>
+
+" 2. easymotion
+set easymotion

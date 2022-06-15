@@ -1,0 +1,69 @@
+set nu
+syntax on
+colorscheme zellner
+set ic
+" show space, tab, cr lf etc.j
+set list 
+noremap  <C-A> <Home>
+inoremap  <C-B> <Left>
+inoremap  <C-D> <Esc>x
+inoremap  <C-F> <Right>
+inoremap  <C-E> <End>
+inoremap  <C-N> <Down>
+inoremap  <C-P> <Up>
+inoremap  <C-W> <Esc>dbi
+inoremap  jk <Esc>
+inoremap  <C-S> <Esc>:w<cr>
+nnoremap  <C-S> :w<cr>
+
+" gS prefix is added for ViEmu, no use for VsVim AFAIK.
+" VsVim and ViEmu are disabled until PeasyMotion finishes
+
+"Whole viewport jump-to-word beginning mode:
+nnoremap <leader><leader> :vsc Tools.InvokePeasyMotion<CR>
+
+" 1. 注释
+    :vnoremap ci :s/^/\/\/<cr>
+    :vnoremap cu :s/\/\//<cr>
+    :nnoremap ci :s/^/\/\/<cr>
+    :nnoremap cu :s/\/\//<cr>
+
+" 2.相关配置
+    " 单个文件中：
+    ":noremap gd <c-]>zz "跳转到定义"
+    :nnoremap gc :vsc Build.Compile         "编译"
+    :nnoremap gb :vsc Build.BuildSolution   "build the solution" 
+    :nnoremap gs :vsc Debug.StopDebugging   "结束调试"
+    :nnoremap gr :vsc Debug.Start           "开始调试"
+
+    ":vnoremap gq ==
+    ":nnoremap <space> za "折叠"
+    :nnoremap zm :vsc VAssistX.ListMethodsInCurrentFile<cr> "函数列表"
+    :nnoremap cj :vsc VAssistX.FindReferencesinFile<CR> "当前文件中的引用"
+    :nnoremap ca :vsc VAssistX.FindReferences<CR> "查看所有引用"
+    :nnoremap cm :vsc File.OpenContainingFolder<CR> "打开所在文件夹"
+    :nnoremap zj :vsc Edit.QuickInfo<CR> "查看函数定义文档"
+    :nnoremap zp :vsc VAssistX.RefactorImplementInterface<CR> "实现接口"
+
+    "visual模式中的查找"
+    :vnoremap * "/y/<C-r>/<CR>
+    :vnoremap # "/y?<C-r>/<CR>
+
+    "多文件"
+    ":nnoremap <c-o> :vsc View.NavigateBackward<CR>  
+    ":nnoremap <c-i> :vsc View.NavigateForward<CR>
+
+    "打开查看类的对话框
+    :nnoremap cs :vsc VAssistX.FindSymbolDialog<CR>
+
+    "打开查看文件的对话框
+    :nnoremap cf :vsc VAssistX.OpenFileInSolutionDialog<CR>
+
+    "open VAOutline
+    :nnoremap co :vsc VAssistX.VAOutline<CR>
+
+    "打开解决方案资源管理器
+    :nnoremap cv :vsc View.SolutionExplorer<CR>
+
+    "在文件中查找
+    :nnoremap ck :vsc Edit.FindinFiles<CR>
